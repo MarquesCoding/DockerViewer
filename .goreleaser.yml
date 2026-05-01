@@ -1,0 +1,50 @@
+version: 2
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: dockerviewer
+    main: .
+    binary: dockerviewer
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
+archives:
+  - formats: [tar.gz]
+    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+brews:
+  - name: dockerviewer
+    repository:
+      owner: MarquesCoding
+      name: homebrew-dockerviewer
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
+    homepage: https://github.com/MarquesCoding/DockerViewer
+    description: "Terminal UI for Docker — browse containers, images, networks and volumes"
+    license: MIT
+    install: |
+      bin.install "dockerviewer"
+    test: |
+      system "#{bin}/dockerviewer", "--version"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+      - Merge pull request

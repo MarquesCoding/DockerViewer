@@ -1,0 +1,19 @@
+# Claude
+.claude/
+
+# Build output
+dockerviewer
+dist/
+
+# Go
+*.test
+*.out
+vendor/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
