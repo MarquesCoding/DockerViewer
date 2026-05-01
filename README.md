@@ -2,6 +2,8 @@
 
 A terminal UI for Docker — think lazydocker, but built from scratch as a personal project to learn Go.
 
+<img width="1642" height="554" alt="image" src="https://github.com/user-attachments/assets/b7be171b-88e1-4ffb-8199-f47103d11288" />
+
 This is early-stage and actively being developed. Expect rough edges.
 
 ## What it does
