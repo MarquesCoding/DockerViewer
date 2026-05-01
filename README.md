@@ -17,8 +17,7 @@ This is early-stage and actively being developed. Expect rough edges.
 ### Homebrew
 
 ```sh
-brew tap marques/dockerviewer
-brew install dockerviewer
+brew install MarquesCoding/dockerviewer/dockerviewer
 ```
 
 ### From source
